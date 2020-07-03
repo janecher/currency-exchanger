@@ -1,39 +1,47 @@
-# _PROJECT NAME_
+# Currency Exchanger
 
-#### _SHORT DESCR_
+#### Currency exchange HTML, CSS, JavaScript(jQuery) application, 07/03/2020
 
-#### By _**YOUR NAME HERE**_
+#### By _**Evgeniya Chernaya**_
 
 ## Description
 
-_Long deiscription._
+Webpage for conversion different currency.
 
 ### Specs
 | Spec | Input | Output |
-| :-------------     | :------------- | :------------- |
+| ------------- | ------------- | ------------- |
+| User can choose the currency convert from, convert to and amount of money, and see the result | USD, EUR, 100 | USD 100 EUR 88 (depends on current conversion rate)|
+| Creare currency object | let currency = new Currency("USD", 100) | {currency: "USD", amount: 100} |
+| Make an exchange based on conversion rate | currency.exchangeTo("EUR") | 88 |
 
 
 ## Setup/Installation Requirements
 
-* _Visit the following link: _
-* _Clone the repository to your desired directory._
-* _OR_
-* _Visit here: _
-
+* Clone the repository to your desired directory (git clone )
+* Do "npm install", then "npm run build" in the terminal
+* Do "npm run start" in the terminal to see the result in browser
 
 ## Known Bugs
 
-_ _
+_No known bags_
+
 ## Support and contact details
 
-_Contact me at...._
+Contact me at _evgenya.chernaya@gmail.com_
 
 ## Technologies Used
 
-_Technology!_
+  * HTML
+  * CSS
+  * JavaScript
+  * JQuery
+  * Bootstrap
+  * Webpack
+  * Jest
 
 ### License
 
-*GPL license distribution*
+_This software is licensed under the MIT license_
 
-Copyright (c) 2020 **_Your name(s)_**
+Copyright (c) 2020 **Evgeniya Chernaya**
