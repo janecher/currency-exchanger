@@ -6,6 +6,10 @@ export class Currency {
   }
 
   exchangeTo(coefficientToUSD, coefficientFromUSD) {
-    return this.amount / coefficientToUSD * coefficientFromUSD;
+    if(coefficientToUSD === 0) {
+      return this.amount * coefficientFromUSD;
+    } else {
+      return this.amount / coefficientToUSD * coefficientFromUSD;
+    }
   }
 }

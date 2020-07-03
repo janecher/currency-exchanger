@@ -5,23 +5,23 @@ import $ from 'jquery';
 import { CurrencyService } from './currency-service.js';
 import { Currency } from './currency.js';
 
-function createCurrencyTo(dataObject) {
+function createCurrencyOptions(dataObject) {
   if(dataObject) {
     let options = "";
     Object.keys(dataObject.conversion_rates).forEach(element => {
       options+=`<option value="${element}">${element}</option>`;
     });
-    console.log(options);
+    $("#currencyFrom").html(options);
     $("#currencyTo").html(options);
   }
 }
 
 function getConversionResult(data, currency, currencyFrom, currencyTo, amount) {
   if (data) {
-    $('.convertFrom').html(`<p>${currencyFrom} ${amount}</p>`);
-    $('.convertTo').html(`<p>${currencyTo} ${Math.floor(currency.exchangeTo(data.conversion_rates[currencyTo])*10)/10}</p>`);
+    $('.convertFrom').html(`<p>${currencyFrom} ${amount}</p>`);    
+    $('.convertTo').html(`<p>${currencyTo} ${Math.floor(currency.exchangeTo(data.conversion_rates[currencyFrom], data.conversion_rates[currencyTo])*10)/10}</p>`);
   } else {
-    $('.error').text(`There was an error handling your request. Please check your inputs and try again!`);
+    $('.error').text(`There was an error handling handling conversion rates request. Please check your inputs and try again!`);
   }
 }
 
@@ -37,42 +37,16 @@ $(document).ready(function(){
       data = await currencyService.getConvertionByCurrency("USD");
       sessionStorage.setItem(key, JSON.stringify(data));
     }
-    createCurrencyTo(data);
+    createCurrencyOptions(data);
   })();
 
   $("form").submit(function(event){
     event.preventDefault();
-    if(!data) {
-      $('.error').text(`There was an error handling conversion rates request`);
-      return;
-    }
     let currencyFrom = $("#currencyFrom").val();
     let currencyTo = $("#currencyTo").val();
     let amount = parseInt($("#amount").val());
-    let currency = new Currency(currencyFrom, amount);
+    let currency = new Currency(currencyFrom, currencyTo, amount);
     $("#amount").val("");
-
-    /*(async () => {
-      const key = "key";
-      let data = sessionStorage.getItem(key);
-      if(data) {
-        data = JSON.parse(data);
-      } else {
-        let currencyService = new CurrencyService();
-        data = await currencyService.getConvertionByCurrency(currencyFrom);
-        sessionStorage.setItem(key, JSON.stringify(data));
-      }
-      getConversionResult(data);
-    })();*/
-
-    /*function getConversionResult(data) {
-      if (data) {
-        $('.convertFrom').html(`<p>${currencyFrom} ${amount}</p>`);
-        $('.convertTo').html(`<p>${currencyTo} ${Math.floor(currency.exchangeTo(data.conversion_rates[currencyTo])*10)/10}</p>`);
-      } else {
-        $('.error').text(`There was an error handling your request. Please check your inputs and try again!`);
-      }
-    }*/
 
     getConversionResult(data, currency, currencyFrom, currencyTo, amount);
   });
