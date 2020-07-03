@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Exchanger</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Currency Exchanger</h1>
+    </div>
+    <form>
+      <div class="row">
+        <div class="col-md-3 col-xs-12 form-group">
+          <label for="usd-eur">From</label>
+          <select class="form-control" id="usd-eur">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+        <div class="col-md-3 col-xs-12 form-group">
+          <label for="convert-currency">To</label>
+          <select class="form-control" id="convert-currency">
+            <option value="AUD">AUD</option>
+            <option value="CAD">CAD</option>
+            <option value="CNY">CNY</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="MXN">MXN</option>
+            <option value="RUB">RUB</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label for="amount">Amount:</label>
+          <input type="number" min="0" id="amount" class="form-control" required>
+        </div>
+      </div>
+      <button type="submit" class="btn">Get exchage</button>
+    </form>
+  </div>
+  <div class="result">
+  </div>
+</body>
+</html>
