@@ -12,22 +12,20 @@ $(document).ready(function(){
     let currencyTo = $("#currencyTo").val();
     let amount = parseInt($("#amount").val());
     let currency = new Currency(currencyFrom, amount);
-
     $("#amount").val("");
 
     (async () => {
       let currencyService = new CurrencyService();
       const response = await currencyService.getConvertionByCurrency(currencyFrom);
-      getElements(response);
+      getConversionResult(response);
     })();
 
-    function getElements(response) {
+    function getConversionResult(response) {
       if (response) {
-        $('.convertFrom').text(`${currencyFrom} ${amount}`);
-        $('.convertTo').text(`${currencyTo} ${currency.exchangeTo(response.conversion_rates[currencyTo])}`);
+        $('.convertFrom').html(`<img src="assets/images/${currencyFrom}.png" alt=${currencyFrom}><p>${currencyFrom} ${amount}</p>`);
+        $('.convertTo').html(`<img src="assets/images/${currencyTo}.png" alt=${currencyTo}><p>${currencyTo} ${Math.floor((currency.exchangeTo(response.conversion_rates[currencyTo])*10)/10)}</p>`);
       } else {
-        $('.showHumidity').text(`There was an error handling your request.`);
-        $('.showTemp').text(`Please check your inputs and try again!`);
+        $('.error').text(`There was an error handling your request. Please check your inputs and try again!`);
       }
     }
   });
