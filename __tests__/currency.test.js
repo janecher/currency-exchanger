@@ -5,18 +5,19 @@ describe('Currency object', () => {
   let currency;
 
   beforeEach(function() {
-    currency = new Currency("USD", 1000);
+    currency = new Currency("USD", "EUR", 1000);
   });
 
   test('should return object with Currency properties', () => {
     expect(currency).toMatchObject({
-      currency: "USD",
+      currencyFrom: "USD",
+      currencyTo: "EUR",
       amount: 1000
     });
   });
 
   test('should exchange amount with coefficient', () => {
-    expect(currency.exchangeTo(2)).toBe(2000);
+    expect(currency.exchangeTo(1, 0.88)).toBe(880);
   });
 
 });
