@@ -42,6 +42,10 @@ $(document).ready(function(){
 
   $("form").submit(function(event){
     event.preventDefault();
+    if(!data) {
+      $('.error').text(`There was an error handling conversion rates request`);
+      return;
+    }
     let currencyFrom = $("#currencyFrom").val();
     let currencyTo = $("#currencyTo").val();
     let amount = parseInt($("#amount").val());
