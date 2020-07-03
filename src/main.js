@@ -16,14 +16,14 @@ $(document).ready(function(){
 
     (async () => {
       let currencyService = new CurrencyService();
-      const response = await currencyService.getConvertionByCurrency(currencyFrom);
-      getConversionResult(response);
+      const data = await currencyService.getConvertionByCurrency(currencyFrom);
+      getConversionResult(data);
     })();
 
-    function getConversionResult(response) {
-      if (response) {
+    function getConversionResult(data) {
+      if (data) {
         $('.convertFrom').html(`<p>${currencyFrom} ${amount}</p>`);
-        $('.convertTo').html(`<p>${currencyTo} ${Math.floor((currency.exchangeTo(response.conversion_rates[currencyTo])*10)/10)}</p>`);
+        $('.convertTo').html(`<p>${currencyTo} ${Math.floor(currency.exchangeTo(data.conversion_rates[currencyTo])*10)/10}</p>`);
       } else {
         $('.error').text(`There was an error handling your request. Please check your inputs and try again!`);
       }
