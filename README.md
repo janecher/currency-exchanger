@@ -12,8 +12,8 @@ Webpage for conversion different currency.
 | Spec | Input | Output |
 | ------------- | ------------- | ------------- |
 | User can choose the currency convert from, convert to and amount of money, and see the result | USD, EUR, 100 | USD 100 EUR 88 (depends on current conversion rate)|
-| Creare currency object | let currency = new Currency("USD", 100) | {currency: "USD", amount: 100} |
-| Make an exchange based on conversion rate | currency.exchangeTo("EUR") | 88 |
+| Creare currency object | let currency = new Currency("USD", "EUR", 100) | {currencyFrom: "USD", currencyTo: "EUR", amount: 100} |
+| Make an exchange based on conversion rate | 100 USD to EUR, currency.exchangeTo(1, 0.88) | 88 |
 
 ## Setup/Installation Requirements
 
