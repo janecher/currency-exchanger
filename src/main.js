@@ -21,7 +21,7 @@ function getConversionResult(data, currency, currencyFrom, currencyTo, amount) {
     $('.convertFrom').html(`<p>${currencyFrom} ${amount}</p>`);    
     $('.convertTo').html(`<p>${currencyTo} ${Math.floor(currency.exchangeTo(data.conversion_rates[currencyFrom], data.conversion_rates[currencyTo])*10)/10}</p>`);
   } else {
-    $('.error').text(`There was an error handling handling conversion rates request. Please check your inputs and try again!`);
+    $('.error').text(`There was an error handling conversion rates request. Please check your inputs and try again!`);
   }
 }
 
