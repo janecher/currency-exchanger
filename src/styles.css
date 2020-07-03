@@ -1,0 +1,29 @@
+body {
+  color: #000066;
+}
+
+.jumbotron {
+  background-color: #000066;
+  color: white;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 50px;
+}
+
+.form-control {
+  border-color: #000066;
+}
+
+.btn {
+  color: #000066;
+  font-weight: bold;
+  border: 1px solid #000066;
+  background-color: #e6e6e6;
+}
+
+.result {
+  margin-top: 30px;
+}

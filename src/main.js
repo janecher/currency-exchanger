@@ -22,8 +22,8 @@ $(document).ready(function(){
 
     function getConversionResult(response) {
       if (response) {
-        $('.convertFrom').html(`<img src="assets/images/${currencyFrom}.png" alt=${currencyFrom}><p>${currencyFrom} ${amount}</p>`);
-        $('.convertTo').html(`<img src="assets/images/${currencyTo}.png" alt=${currencyTo}><p>${currencyTo} ${Math.floor((currency.exchangeTo(response.conversion_rates[currencyTo])*10)/10)}</p>`);
+        $('.convertFrom').html(`<p>${currencyFrom} ${amount}</p>`);
+        $('.convertTo').html(`<p>${currencyTo} ${Math.floor((currency.exchangeTo(response.conversion_rates[currencyTo])*10)/10)}</p>`);
       } else {
         $('.error').text(`There was an error handling your request. Please check your inputs and try again!`);
       }
