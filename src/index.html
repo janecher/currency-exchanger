@@ -14,14 +14,14 @@
       <div class="row">
         <div class="col-md-3 col-xs-12 form-group">
           <label for="usd-eur">From</label>
-          <select class="form-control" id="usd-eur">
+          <select class="form-control" id="currencyFrom">
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
           </select>
         </div>
         <div class="col-md-3 col-xs-12 form-group">
           <label for="convert-currency">To</label>
-          <select class="form-control" id="convert-currency">
+          <select class="form-control" id="currencyTo">
             <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
             <option value="CNY">CNY</option>
@@ -29,6 +29,7 @@
             <option value="GBP">GBP</option>
             <option value="MXN">MXN</option>
             <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
           </select>
         </div>
         <div class="col-md-6 col-xs-12 form-group">
@@ -38,8 +39,18 @@
       </div>
       <button type="submit" class="btn">Get exchage</button>
     </form>
-  </div>
-  <div class="result">
+    <div class="result">
+      <div class="row conversion">
+        <div class="col-md-6 convertFrom">
+          
+        </div>
+        <div class="col-md-6 convertTo">
+          
+        </div>
+      </div>
+      <div class="error">
+      </div>
+    </div>
   </div>
 </body>
 </html>
