@@ -1,10 +1,11 @@
 export class Currency {
-  constructor(currency, amount){
-    this.currency = currency;
+  constructor(currencyFrom, currencyTo, amount){
+    this.currencyFrom = currencyFrom;
+    this.currencyTo = currencyTo;
     this.amount = amount;
   }
 
-  exchangeTo(coefficient) {
-    return this.amount*coefficient;
+  exchangeTo(coefficientToUSD, coefficientFromUSD) {
+    return this.amount / coefficientToUSD * coefficientFromUSD;
   }
 }
