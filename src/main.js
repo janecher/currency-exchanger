@@ -15,8 +15,15 @@ $(document).ready(function(){
     $("#amount").val("");
 
     (async () => {
-      let currencyService = new CurrencyService();
-      const data = await currencyService.getConvertionByCurrency(currencyFrom);
+      const key = "key";
+      let data = sessionStorage.getItem(key);
+      if(data) {
+        data = JSON.parse(data);
+      } else {
+        let currencyService = new CurrencyService();
+        data = await currencyService.getConvertionByCurrency(currencyFrom);
+        sessionStorage.setItem(key, JSON.stringify(data));
+      }
       getConversionResult(data);
     })();
 
